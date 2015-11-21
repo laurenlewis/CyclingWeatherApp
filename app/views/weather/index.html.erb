@@ -1,1 +1,13 @@
-<%= debug @forecast%>
+<div class="debug hidden">
+	<%= debug @forecast %>
+</div>
+
+<% if true %>
+	<strong><%= @my_weather["location_display"] %></strong><br />
+	<strong>Current Temp:</strong> <%= @my_weather["current_temp"] %>&deg;<br/>
+	<img src="<%= @my_weather["conditions_image"] %>" /><br>
+	<%= @my_weather["current_conditions"] %><br/><br/>
+	<strong>Today's High:</strong> <%= @my_weather["todays_high"] %>&deg;<br/>
+	<strong>Today's Low:</strong> <%= @my_weather["todays_low"] %>&deg;<br/>
+	<%= @recommedation %>
+<% end %>
