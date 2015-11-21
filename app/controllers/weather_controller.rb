@@ -1,12 +1,18 @@
 class WeatherController < ApplicationController
-
   def index
   	w_api = Wunderground.new(Rails.application.secrets.wapi_key)
-  	@forecast = w_api.forecast_and_conditions_for(random_location)
+
+  	# If we just want to use the user's current location
+  	location = { :geo_ip => remote_ip }
+
+  	# For testing, use a random location
+  	# location = random_location
+
+  	@forecast = w_api.forecast_and_conditions_for(location)
   end
 
 	private 
-	#Get the IP Address of the User (or, locally, hard-code ours in)
+	# Get the IP Address of the User (or, locally, hard-code ours in)
 	def remote_ip
 	  if request.remote_ip == '127.0.0.1' || request.remote_ip == '::1'
 	  	# My Local Machine
