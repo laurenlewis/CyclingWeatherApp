@@ -9,5 +9,15 @@
 	<%= @my_weather["current_conditions"] %><br/><br/>
 	<strong>Today's High:</strong> <%= @my_weather["todays_high"] %>&deg;<br/>
 	<strong>Today's Low:</strong> <%= @my_weather["todays_low"] %>&deg;<br/>
-	<%= @recommedation %>
+	<strong>Our Recommendation: </strong><%= @recommedation %><br />
+	<% if true %>
+		<h3>Recommended from your Inventory:</h3>
+		<ul>
+			<% @items.each do |item| %>
+				<li><%= item %></li>
+			<% end %>
+		</ul>
+	<% else %>
+		<h3>Sign Up to get your own recommendations!</h3>
+	<% end %>
 <% end %>

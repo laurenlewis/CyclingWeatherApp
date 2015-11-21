@@ -22,11 +22,8 @@ class WeatherController < ApplicationController
       "todays_low"          => @todays_forecast["low"]["fahrenheit"]
     }
 
-    if @my_weather["current_temp"] < 50
-      @recommedation = "Don't bike!"
-    else
-      @recommedation = "Enjoy biking!"
-    end
+    get_recommendation(@my_weather)
+
   end
 
 	private 
@@ -42,8 +39,25 @@ class WeatherController < ApplicationController
 
 	# Get a random location from a list of locations
 	def random_location
-	  options = ["WA/Spokane", "CA/San Francisco", "FL/Miami", "CO/Denver"]
+	  options = ["WA/Seattle", "CA/San Francisco", "FL/Miami", "CO/Denver", "IL/Chicago"]
 	  options.sample
 	end
 
+  # Main Algorithm:
+  # Get the recommendation based on the current weather
+  def get_recommendation(weather)
+    @items = [] # Initialize array for recommended items
+    if weather["current_temp"] < 50 && weather["current_temp"] >= 40
+      @recommedation = "Getting cold, probably still OK though!"
+      @items.push("L.L. Bean Gloves")
+      @items.push("Ear muffs")
+    elsif weather["current_temp"] < 40
+      @recommedation = "It's almost freezing! Take the bus."
+      @items.push("None. It's too cold, remember?")
+    else
+      @recommedation = "Enjoy biking!"
+      @items.push("Just yourself.")
+    end
+    
+  end
 end
