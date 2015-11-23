@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
 get '/weather' => 'weather#index'
 
+
 #46eeb98f54cddb2cedc9d768114be70577a91032
-#>>>>>>> 71fe27f6249e66d3c26d2c976ff515ae8d919722
+#71fe27f6249e66d3c26d2c976ff515ae8d919722
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
