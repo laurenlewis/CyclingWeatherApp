@@ -14,7 +14,19 @@
  *= require_self
  */
 
+ 
 body { padding-top: 100px; }
 footer { margin-top: 100px; }
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
+ 
+.debug {
+	background-color: #efefef;
+	padding: 20px;
+	border: 2px solid #ccc;
+}
+
+.hidden {
+	display: none;
+}
+/*>>>>>>> 71fe27f6249e66d3c26d2c976ff515ae8d919722*/
