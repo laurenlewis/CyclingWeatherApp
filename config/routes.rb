@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  get '/'    =>   "home#index"
+
+get '/weather' => 'weather#index'
+
+#46eeb98f54cddb2cedc9d768114be70577a91032
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
