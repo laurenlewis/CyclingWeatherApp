@@ -18,7 +18,17 @@ Rails.application.configure do
 
   
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  ActionMailer::Base.smtp_settings = {
+  :user_name => 'slcanfield',
+  :password => 'sendgrid1',
+  :domain => 'snl.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
+
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -44,6 +54,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  
+
   ## Devise
 end
