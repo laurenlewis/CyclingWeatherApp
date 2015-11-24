@@ -11,6 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 20151124140829) do
+
+  create_table "items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "category"
+    t.string   "typeofweather"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+
 ActiveRecord::Schema.define(version: 20151120185325) do
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +53,5 @@ ActiveRecord::Schema.define(version: 20151120185325) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
+# 5cb4f17dfb2bebeb89b39d32536de1906b6c99bd
 end
