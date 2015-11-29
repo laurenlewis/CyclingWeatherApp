@@ -1,23 +1,24 @@
 <div class="debug hidden">
 	<%= debug @forecast %>
 </div>
-
-<% if true %>
-	<strong><%= @my_weather["location_display"] %></strong><br />
-	<strong>Current Temp:</strong> <%= @my_weather["current_temp"] %>&deg;<br/>
-	<img src="<%= @my_weather["conditions_image"] %>" /><br>
-	<%= @my_weather["current_conditions"] %><br/><br/>
-	<strong>Today's High:</strong> <%= @my_weather["todays_high"] %>&deg;<br/>
-	<strong>Today's Low:</strong> <%= @my_weather["todays_low"] %>&deg;<br/>
-	<strong>Our Recommendation: </strong><%= @recommendation %><br />
+<div class="container">
 	<% if true %>
-		<h3>Recommended from your Inventory:</h3>
-		<ul>
-			<% @items.each do |item| %>
-				<li><%= item %></li>
-			<% end %>
-		</ul>
-	<% else %>
-		<h3>Sign Up to get your own recommendations!</h3>
+		<strong><%= @my_weather["location_display"] %></strong><br />
+		<strong>Current Temp:</strong> <%= @my_weather["current_temp"] %>&deg;<br/>
+		<img src="<%= @my_weather["conditions_image"] %>" /><br>
+		<%= @my_weather["current_conditions"] %><br/><br/>
+		<strong>Today's High:</strong> <%= @my_weather["todays_high"] %>&deg;<br/>
+		<strong>Today's Low:</strong> <%= @my_weather["todays_low"] %>&deg;<br/>
+		<strong>Our Recommendation: </strong><%= @recommendation %><br />
+		<% if true %>
+			<h3>Recommended from your Inventory:</h3>
+			<ul>
+				<% @items.each do |item| %>
+					<li><%= item %></li>
+				<% end %>
+			</ul>
+		<% else %>
+			<h3>Sign Up to get your own recommendations!</h3>
+		<% end %>
 	<% end %>
-<% end %>
+</div>

@@ -14,12 +14,35 @@
  *= require_self
  */
 
- 
-body { padding-top: 100px; }
-footer { margin-top: 100px; }
-table, td, th { vertical-align: middle; border: none; }
-th { border-bottom: 1px solid #DDD; }
- 
+* { 
+	font-family: 'Patrick Hand SC', cursive; 
+} 
+
+body { 
+	padding-top: 100px; 
+	font-size: 18px;
+}
+
+footer { 
+	margin-top: 100px; 
+}
+
+table, td, th { 
+	vertical-align: middle; border: none; 
+}
+
+th { 
+	border-bottom: 1px solid #DDD; 
+}
+
+.navbar {
+	font-size: 24px;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Patrick Hand SC', cursive; 
+}
+
 .debug {
 	background-color: #efefef;
 	padding: 20px;
