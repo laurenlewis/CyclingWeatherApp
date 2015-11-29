@@ -13,11 +13,11 @@
 <nav class="navbar navbar-inverse">
   <div class="container">
     <div class="navbar-header">
-      <%= link_to 'Cycle Weather', root_path, class: 'navbar-brand' %>
+      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
     </div>
     <div id="navbar">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Cycle Weather', '/weather'%></li>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
