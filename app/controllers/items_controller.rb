@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :logged_in_user
 
 def new
 	@item = Item.new
@@ -26,5 +27,9 @@ private
   	  params.require(:item).permit(:name, :category, :typeofweather)
   	end
 
+    def correct_user
+      @item = current_user.items.find_by(id: params[:id])
+      redirect_to root_url if @item.nil?
+    end
 
 end
