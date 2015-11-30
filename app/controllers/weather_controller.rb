@@ -39,7 +39,7 @@ class WeatherController < ApplicationController
 
 	# Get a random location from a list of locations
 	def random_location
-	  options = ["WA/Seattle", "CA/San Francisco", "FL/Miami", "CO/Denver", "IL/Chicago"]
+	  options = ["FL/Miami", "CO/Denver", "IL/Chicago"]
 	  options.sample
 	end
 
@@ -47,16 +47,27 @@ class WeatherController < ApplicationController
   # Get the recommendation based on the current weather
   def get_recommendation(weather)
     @items = [] # Initialize array for recommended items
-    if weather["current_temp"] < 50 && weather["current_temp"] >= 40
-      @recommedation = "Getting cold, probably still OK though!"
-      @items.push("L.L. Bean Gloves")
-      @items.push("Ear muffs")
-    elsif weather["current_temp"] < 40
-      @recommedation = "It's almost freezing! Take the bus."
-      @items.push("None. It's too cold, remember?")
+    if weather["current_temp"] < 60 && weather["current_temp"] >= 50
+      @recommendation = "Still mild weather, add a jacket."
+      @items.push("REI Jacket")
+    elsif weather["current_temp"] < 50 && weather["current_temp"] >= 40
+      @recommendation = "Getting cold, add at least two torso layers. Gloves and headgear optional."
+      @items.push("REI Jacket")
+      @items.push("North Face Fleece")  
+    elsif weather["current_temp"] < 40 && weather["current_temp"] >= 32
+      @recommendation = "It's almost freezing! Wear multiple layers for torso, make sure to have gloves and headgear."
+      @items.push("REI Jacket")
+      @items.push("North Face Fleece") 
+      @items.push("Gloves")
+      @items.push("Balaklava")
+    elsif weather["current_temp"] < 32
+      @recommendation = "Temperature is below freezing. We recommend taking public transportation. If you are riding, wear breathable layers, go slow over ice, and bring plenty of water!"
+      @items.push("Gloves")
+      @items.push("Balaklava")
+      @items.push("Under Armour Leggings")
     else
-      @recommedation = "Enjoy biking!"
-      @items.push("Just yourself.")
+      @recommendation = "Current temperature is above 60°F. Enjoy biking!"
+      @items.push("None")
     end
     
   end

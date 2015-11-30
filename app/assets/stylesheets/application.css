@@ -14,12 +14,52 @@
  *= require_self
  */
 
- 
-body { padding-top: 100px; }
-footer { margin-top: 100px; }
-table, td, th { vertical-align: middle; border: none; }
-th { border-bottom: 1px solid #DDD; }
- 
+* { 
+	/*font-family: 'Patrick Hand SC', cursive*/
+	font-family: 'Roboto Condensed', sans-serif;
+} 
+
+body { 
+	padding-top: 100px; 
+	font-size: 18px;
+}
+
+footer { 
+	margin-top: 100px; 
+}
+
+table, td, th { 
+	vertical-align: middle; border: none; 
+}
+
+th { 
+	border-bottom: 1px solid #DDD; 
+}
+
+.navbar {
+	font-size: 24px;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Roboto Condensed', sans-serif, italic; 
+}
+
+.jumbotron {
+	position: relative;
+    background: #000 url("commute.jpeg") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    height: 550px;
+    color: #F8F8FF;
+}
+
+.btn-primary {
+	background: #6B9BCC;
+	border: 1px solid #6B9BCC;
+}
+
 .debug {
 	background-color: #efefef;
 	padding: 20px;
