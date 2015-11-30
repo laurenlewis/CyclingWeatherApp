@@ -18,15 +18,7 @@ Rails.application.configure do
 
   
   # Don't care if the mailer can't send.
-  ActionMailer::Base.smtp_settings = {
-  :user_name => 'slcanfield',
-  :password => 'sendgrid1',
-  :domain => 'snl.com',
-  :address => 'smtp.sendgrid.net',
-  :port => 587,
-  :authentication => :plain,
-  :enable_starttls_auto => true
-}
+
 
   config.action_mailer.raise_delivery_errors = true
 
