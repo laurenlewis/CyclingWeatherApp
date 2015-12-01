@@ -1,8 +1,9 @@
 <%= form_for (@item) do |f| %>
-<%= f.label, :name "Item Name" %>
-<%= f.text_field, :name %>
-<%= f.label, :category "I wear this on my:" %>
-<%= f.text_field, :category %>
-<%= f.label, :typeofweather, "I wear this when the weather is:" %>
-<%= f.text_field, :typeofweather %>
-<%= f.submit, "Add item to your Inventory" %>
+<%= f.label :name  %>
+<%= f.text_field :name %>
+<%= f.label :category  %>
+<%= f.text_field :category %>
+<%= f.label :typeofweather %>
+<%= f.text_field :typeofweather %>
+<%= f.submit %>
+<% end %>
