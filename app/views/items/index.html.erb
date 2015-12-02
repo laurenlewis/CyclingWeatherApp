@@ -1,0 +1,27 @@
+
+
+<div class="container">
+  <h2>Your Inventory</h2>       
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>I wear it on my:</th>
+        <th>Use when the weather is:</th>
+      </tr>
+    </thead>
+      <tbody>
+      	<% @items.each do |item| %>
+        <tr>
+		  <td><%= item.name %></td>
+		  <td><%= item.category %></td>
+      	  <td><%= item.typeofweather %></td>
+        </tr>
+        <% end %>
+      </tbody>
+  </table>
+</div>
+
+
+
+    
