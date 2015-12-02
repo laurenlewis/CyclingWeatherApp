@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
 
 def index
- @items = Item.all
+ @items = User.find(current_user.id).items
 end
 
 def new
@@ -12,6 +12,7 @@ end
 
 def create
   	@item = Item.new(item_params)
+    @item.user_id = current_user.id
   	if @item.save
   	  flash[:success] = "New item added to your inventory"
   	  redirect_to items_path

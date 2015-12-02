@@ -14,7 +14,7 @@
 			<h3>Recommended from your Inventory:</h3>
 			<ul>
 				<% @items.each do |item| %>
-					<li><%= item %></li>
+					<li><%= item.name %></li>
 				<% end %>
 			</ul>
 		<% else %>
