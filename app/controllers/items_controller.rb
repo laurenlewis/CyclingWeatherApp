@@ -10,7 +10,7 @@ def new
 end
 
 def create
-  	@item = Item.new(params[:item])
+  	@item = Item.new(item_params)
   	if @item.save
   	  flash[:success] = "New item added to your inventory"
   	  redirect_to root_url
