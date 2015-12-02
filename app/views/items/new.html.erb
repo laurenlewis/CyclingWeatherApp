@@ -1,0 +1,16 @@
+<h1>Add an Item to your Inventory!</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for (@item) do |f| %>
+      <%= f.label :name  %>
+      <%= f.text_field :name, class: 'form-control' %><br>
+      <%= f.label :category, "I wear this on the following part of my body:" %>
+      <%= f.select :category, ['Head', 'Neck', 'Body', 'Legs', 'Feet', 'Other'] %><br><br>
+      <%= f.label :typeofweather, "I will wear this when the weather outside is:" %>
+      <%= f.select :typeofweather, ['Very Hot', 'Hot', 'Warm', 'Cool', 'Cold', 'Very Cold'] %><br><br>
+      <%= f.submit "Add Me.", class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+

@@ -1,8 +1,0 @@
-<%= form_for (@item) do |f| %>
-<%= f.label, :name "Item Name" %>
-<%= f.text_field, :name %>
-<%= f.label, :type "I wear this on my:" %>
-<%= f.select, :type, [['Head, head'],['Neck','neck'],['Hands', 'hands'],['Torso', 'torso'],['Legs','legs'],['Feet','feet']] %>
-<%= f.label, :typeofweather, "I wear this when the weather is:" %>
-<%= f.select :typeofweather, [['Hot','hot'],['Warm','warm'],['Cool','cool'],['Cold','cold']] %>
-<%= f.submit, "Add item to your Inventory" %>

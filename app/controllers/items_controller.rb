@@ -1,23 +1,34 @@
 class ItemsController < ApplicationController
-  before_action :logged_in_user
+
+
+
+def index
+ @items = Item.all
+end
 
 def new
 	@item = Item.new
 end
 
 def create
-  	@item = current_user.items.build(item_params)
+  	@item = Item.new(item_params)
   	if @item.save
   	  flash[:success] = "New item added to your inventory"
-  	  redirect_to root_url
+  	  redirect_to items_path
   	else
   	  flash[:danger] = "Item not created"
-  	  redirect_to item_path
+  	  redirect_to items_path
   	end
 end
 
 def show
-	# @items = @user.items(params[:id])
+	@items = Item.find(params[:id])
+end
+
+def destroy
+  Item.find(params[:id]).destroy
+  flash[:success] = "Item Removed from Inventory"
+  redirect_to items_path
 end
 
 
