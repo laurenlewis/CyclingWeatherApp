@@ -3,10 +3,10 @@ class WeatherController < ApplicationController
   	w_api = Wunderground.new(Rails.application.secrets.wapi_key)
 
   	# If we just want to use the user's current location
-    # location = { :geo_ip => remote_ip }
+    location = { :geo_ip => remote_ip }
 
   	# For testing, use a random location
-  	location = random_location
+  	# location = random_location
 
   	@forecast = w_api.forecast_and_conditions_for(location)
   	@todays_forecast = @forecast["forecast"]["simpleforecast"]["forecastday"][0]
