@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#index'
 
+  
+
 # >>>>>>> 5cb4f17dfb2bebeb89b39d32536de1906b6c99bd
 
 
