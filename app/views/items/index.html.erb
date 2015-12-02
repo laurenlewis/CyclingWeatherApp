@@ -1,7 +1,6 @@
-
-
 <div class="container">
-  <h2>Your Inventory</h2>       
+  <h2>Your Inventory</h2>
+  <%= link_to 'Add a New Item', '/items/new' %>       
   <table class="table table-striped">
     <thead>
       <tr>
@@ -13,14 +12,17 @@
       <tbody>
       	<% @items.each do |item| %>
         <tr>
-		  <td><%= item.name %></td>
-		  <td><%= item.category %></td>
-      	  <td><%= item.typeofweather %></td>
+		      <td><%= item.name %></td>
+		      <td><%= item.category %></td>
+          <td><%= item.typeofweather %></td>
+          <td><%= link_to "delete", item, method: :delete %></td>
         </tr>
         <% end %>
       </tbody>
   </table>
 </div>
+
+
 
 
 

@@ -3,11 +3,11 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for (@item) do |f| %>
       <%= f.label :name  %>
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, class: 'form-control' %><br>
       <%= f.label :category  %>
-      <%= f.text_field :category, class: 'form-control'   %>
+      <%= f.select :category, ['Head', 'Neck', 'Body', 'Legs', 'Feet', 'Other'] %><br><br>
       <%= f.label :typeofweather %>
-      <%= f.text_field :typeofweather, class: 'form-control'   %><br>
+      <%= f.select :typeofweather, ['Very Hot', 'Hot', 'Warm', 'Cool', 'Cold', 'Very Cold'] %><br><br>
       <%= f.submit "Add Me.", class:"btn btn-primary" %>
     <% end %>
   </div>
