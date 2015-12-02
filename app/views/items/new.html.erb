@@ -4,9 +4,9 @@
     <%= form_for (@item) do |f| %>
       <%= f.label :name  %>
       <%= f.text_field :name, class: 'form-control' %><br>
-      <%= f.label :category  %>
+      <%= f.label :category, "I wear this on the following part of my body:" %>
       <%= f.select :category, ['Head', 'Neck', 'Body', 'Legs', 'Feet', 'Other'] %><br><br>
-      <%= f.label :typeofweather %>
+      <%= f.label :typeofweather, "I will wear this when the weather outside is:" %>
       <%= f.select :typeofweather, ['Very Hot', 'Hot', 'Warm', 'Cool', 'Cold', 'Very Cold'] %><br><br>
       <%= f.submit "Add Me.", class:"btn btn-primary" %>
     <% end %>
