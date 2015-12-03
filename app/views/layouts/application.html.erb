@@ -65,18 +65,18 @@
 
 <div class="container">
     <h1><%= yield :header %></h1>
-  <%= yield %>
+    <%= yield %>
+    <div id="main-content">
+      <% if notice %>
+       <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+  <!-- end flash messaging -->
+  
+    </div>
 </div>
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-
-<!-- <div class="container">
-  <%= yield %>
-</div> -->
 
 </body>
 </html>

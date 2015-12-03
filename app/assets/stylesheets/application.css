@@ -69,4 +69,9 @@ h1, h2, h3, h4 {
 .hidden {
 	display: none;
 }
+
+#main-content {
+	position:absolute;
+	top:0px
+}
 >>>>>>> 71fe27f6249e66d3c26d2c976ff515ae8d919722*/

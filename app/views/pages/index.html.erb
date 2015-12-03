@@ -3,9 +3,13 @@
     <div class="container">
       <h1>Welcome to WhetherCycle!</h1>
       <p>Bike all year long. Get current weather &amp; clothing recommendations. Let's get started.</p>
-      <p>
-        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-      </p>
+      <% if user_signed_in? %>
+      
+      <%else%>
+	      <p>
+	        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
+	      </p>
+	  <% end %>
     </div>
   </div>
 <% end %>
