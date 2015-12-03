@@ -3,10 +3,10 @@ class WeatherController < ApplicationController
   	w_api = Wunderground.new(Rails.application.secrets.wapi_key)
 
   	# If we just want to use the user's current location
-    # location = { :geo_ip => remote_ip }
+    location = { :geo_ip => remote_ip }
 
   	# For testing, use a random location
-  	location = random_location
+  	# location = random_location
 
   	@forecast = w_api.forecast_and_conditions_for(location)
   	@todays_forecast = @forecast["forecast"]["simpleforecast"]["forecastday"][0]
@@ -50,15 +50,68 @@ class WeatherController < ApplicationController
     @items =[] # Initialize array for recommended items
 
     @all_items.each do |item|
-      if weather["current_temp"] < 45
+      if weather["current_temp"] < 32
+        @recommendation = "Temperature is below freezing. We recommend taking public transportation. If you are riding, wear breathable layers, go slow over ice, and bring plenty of water!"
+        if item.typeofweather == 'Freezing'
+          @items.push(item)
+        end
+      end
+    end
+
+    @all_items.each do |item|
+      if weather["current_temp"] < 40 && weather["current_temp"] >= 32
+        @recommendation = "It's almost freezing! Wear multiple layers for torso, make sure to have gloves and headgear."
         if item.typeofweather == 'Very Cold'
           @items.push(item)
         end
       end
     end
-    # if weather["current_temp"] < 60 && weather["current_temp"] >= 50
-    #   @recommendation = "Still mild weather, add a jacket."
-    #   @items.push("REI Jacket")
+
+    @all_items.each do |item|
+      if weather["current_temp"] < 50 && weather["current_temp"] >= 40
+        @recommendation = "Getting cold, add at least two torso layers. Gloves and headgear optional."
+        if item.typeofweather == 'Cold'
+          @items.push(item)
+        end
+      end
+    end
+
+    @all_items.each do |item|
+      if weather["current_temp"] < 60 && weather["current_temp"] >= 50
+        @recommendation = "Still mild weather, add one jacket."
+        if item.typeofweather == 'Cool'
+        @items.push(item)
+        end
+      end
+    end
+
+    @all_items.each do |item|
+      if weather["current_temp"] < 80 && weather["current_temp"] >= 60
+        @recommendation = "It's a beautiful day! Enjoy biking!"
+        if item.typeofweather == 'Warm'
+          @items.push(item)
+        end
+      end
+    end
+
+     @all_items.each do |item|
+      if weather["current_temp"] < 90 && weather["current_temp"] >= 80
+        @recommendation = "It's getting hot. Wear sunscreen and drink plenty of water!"
+        if item.typeofweather == 'Hot'
+          @items.push(item)
+        end
+      end
+    end
+
+     @all_items.each do |item|
+      if weather["current_temp"] >= 90 
+        @recommendation = "The temperature is at or above 90°F. There could be a heat advisory. Consider taking public tranpsortation. If biking, wear sunscreen, breathable, light clothing and stay hydrated!"
+        if item.typeofweather == 'Very Hot'
+          @items.push(item)
+        end
+      end
+    end
+
     # elsif weather["current_temp"] < 50 && weather["current_temp"] >= 40
     #   @recommendation = "Getting cold, add at least two torso layers. Gloves and headgear optional."
     #   @items.push("REI Jacket")
@@ -66,14 +119,9 @@ class WeatherController < ApplicationController
     # elsif weather["current_temp"] < 40 && weather["current_temp"] >= 32
     #   @recommendation = "It's almost freezing! Wear multiple layers for torso, make sure to have gloves and headgear."
     #   @items.push("REI Jacket")
-    #   @items.push("North Face Fleece") 
-    #   @items.push("Gloves")
-    #   @items.push("Balaklava")
     # elsif weather["current_temp"] < 32
     #   @recommendation = "Temperature is below freezing. We recommend taking public transportation. If you are riding, wear breathable layers, go slow over ice, and bring plenty of water!"
     #   @items.push("Gloves")
-    #   @items.push("Balaklava")
-    #   @items.push("Under Armour Leggings")
     # else
     #   @recommendation = "Current temperature is above 60°F. Enjoy biking!"
     #   @items.push("None")
