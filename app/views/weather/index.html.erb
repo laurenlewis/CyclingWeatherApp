@@ -9,7 +9,8 @@
 		<%= @my_weather["current_conditions"] %><br/><br/>
 		<strong>Today's High:</strong> <%= @my_weather["todays_high"] %>&deg;<br/>
 		<strong>Today's Low:</strong> <%= @my_weather["todays_low"] %>&deg;<br/>
-		<strong>Our Recommendation: </strong><%= @recommendation %><br />
+		<strong>Feels Like:</strong> <%= @my_weather["feels_like"] %>&deg;<br/></br>
+		<strong>Our Recommendation: </strong><%= @recommendation %><br/>
 		<% if true %>
 			<h3>Recommended from your Inventory:</h3>
 			<ul>

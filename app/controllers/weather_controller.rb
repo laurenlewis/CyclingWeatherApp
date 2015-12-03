@@ -19,7 +19,8 @@ class WeatherController < ApplicationController
       "current_conditions"  => current_weather["weather"],
       "conditions_image"    => current_weather["icon_url"], 
       "todays_high"         => @todays_forecast["high"]["fahrenheit"],
-      "todays_low"          => @todays_forecast["low"]["fahrenheit"]
+      "todays_low"          => @todays_forecast["low"]["fahrenheit"],
+      "feels_like"          => current_weather["feelslike_f"]
     }
 
     get_recommendation(@my_weather)

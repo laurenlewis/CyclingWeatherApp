@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
 get '/weather' => 'weather#index'
 
+post '/items/:id' => 'items#edit'
+
 
 #46eeb98f54cddb2cedc9d768114be70577a91032
 

@@ -1,0 +1,8 @@
+<h1>Edit Your Item</h1>
+<% if user_signed_in? %>
+	<%= render 'form' %>
+
+	<%= link_to 'Back', items_path %>
+<% else %>
+	<h3>You must be logged in to edit an item.</h3>
+<% end %>

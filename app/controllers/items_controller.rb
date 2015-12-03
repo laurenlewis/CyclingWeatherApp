@@ -32,6 +32,19 @@ def destroy
   redirect_to items_path
 end
 
+def edit
+  @item = Item.find(params[:id])
+end
+
+def update
+  @item = Item.find(params[:id])
+  if @item.update_attributes(item_params)
+    flash[:notice] = "Your item was successfully updated!"
+    redirect_to items_path
+  else
+    render 'edit'
+  end
+end
 
 private
   	

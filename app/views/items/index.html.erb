@@ -15,6 +15,7 @@
 		      <td><%= item.name %></td>
 		      <td><%= item.category %></td>
           <td><%= item.typeofweather %></td>
+          <td><%= link_to "edit", item, method: :edit %></td>
           <td><%= link_to "delete", item, method: :delete %></td>
         </tr>
         <% end %>
