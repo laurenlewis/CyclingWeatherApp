@@ -39,7 +39,7 @@ class WeatherController < ApplicationController
 
 	# Get a random location from a list of locations
 	def random_location
-	  options = ["CO/Denver", "IL/Chicago"]
+	  options = ["FL/Miami", "ND/Fargo"]
 	  options.sample
 	end
 
@@ -51,9 +51,11 @@ class WeatherController < ApplicationController
 
     @all_items.each do |item|
       if weather["current_temp"] < 32
-        @recommendation = "Temperature is below freezing. We recommend taking public transportation. If you are riding, wear breathable layers, go slow over ice, and bring plenty of water!"
+        @recommendation = "Temperature is below freezing. We recommend taking public transportation. If you ride, wear breathable layers, go slow over ice, and bring plenty of water!"
         if item.typeofweather == 'Freezing'
           @items.push(item)
+        else
+          puts "No items to recommend"
         end
       end
     end
@@ -63,6 +65,8 @@ class WeatherController < ApplicationController
         @recommendation = "It's almost freezing! Wear multiple layers for torso, make sure to have gloves and headgear."
         if item.typeofweather == 'Very Cold'
           @items.push(item)
+        else
+          puts "No items to recommend"
         end
       end
     end
@@ -72,6 +76,8 @@ class WeatherController < ApplicationController
         @recommendation = "Getting cold, add at least two torso layers. Gloves and headgear optional."
         if item.typeofweather == 'Cold'
           @items.push(item)
+        else
+          puts "No items to recommend"
         end
       end
     end
@@ -81,6 +87,8 @@ class WeatherController < ApplicationController
         @recommendation = "Still mild weather, add one jacket."
         if item.typeofweather == 'Cool'
         @items.push(item)
+        else
+          puts "No items to recommend"
         end
       end
     end
@@ -90,6 +98,8 @@ class WeatherController < ApplicationController
         @recommendation = "It's a beautiful day! Enjoy biking!"
         if item.typeofweather == 'Warm'
           @items.push(item)
+        else
+          puts "No items to recommend"
         end
       end
     end
@@ -99,6 +109,8 @@ class WeatherController < ApplicationController
         @recommendation = "It's getting hot. Wear sunscreen and drink plenty of water!"
         if item.typeofweather == 'Hot'
           @items.push(item)
+        else
+          puts "No items to recommend"
         end
       end
     end
@@ -108,24 +120,10 @@ class WeatherController < ApplicationController
         @recommendation = "The temperature is at or above 90°F. There could be a heat advisory. Consider taking public tranpsortation. If biking, wear sunscreen, breathable, light clothing and stay hydrated!"
         if item.typeofweather == 'Very Hot'
           @items.push(item)
+        else
+          puts "No items to recommend"
         end
       end
     end
-
-    # elsif weather["current_temp"] < 50 && weather["current_temp"] >= 40
-    #   @recommendation = "Getting cold, add at least two torso layers. Gloves and headgear optional."
-    #   @items.push("REI Jacket")
-    #   @items.push("North Face Fleece")  
-    # elsif weather["current_temp"] < 40 && weather["current_temp"] >= 32
-    #   @recommendation = "It's almost freezing! Wear multiple layers for torso, make sure to have gloves and headgear."
-    #   @items.push("REI Jacket")
-    # elsif weather["current_temp"] < 32
-    #   @recommendation = "Temperature is below freezing. We recommend taking public transportation. If you are riding, wear breathable layers, go slow over ice, and bring plenty of water!"
-    #   @items.push("Gloves")
-    # else
-    #   @recommendation = "Current temperature is above 60°F. Enjoy biking!"
-    #   @items.push("None")
-    # end
-    
   end
 end
