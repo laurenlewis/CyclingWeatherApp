@@ -9,6 +9,7 @@
       <%= f.label :typeofweather, "I will wear this when the weather outside is:" %>
       <%= f.select :typeofweather, ['Very Hot', 'Hot', 'Warm', 'Cool', 'Cold', 'Very Cold', 'Freezing'] %><br><br>
       <%= f.submit "Add Me", class:"btn btn-primary" %>
+      <%= link_to 'Back', items_path, class:"btn btn-primary" %>
     <% end %>
   </div>
 </div>
